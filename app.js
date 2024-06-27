@@ -25,7 +25,7 @@ const LocalStratergy=require("passport-local");
 const User=require("./models/user.js");
 const user=require("./routes/user.js");
 const dbUrl=process.env.ATLASDB_URL;
-//const MONGO_URL="mongodb://127.0.0.1:27017/wanderlust"
+const MONGO_URL="mongodb://127.0.0.1:27017/wanderlust"
 main()
 .then(()=>{
     console.log("connected to DB");
@@ -116,7 +116,8 @@ app.use("/",user);
 
 app.get("/listings")
 async function main(){
-    await mongoose.connect(dbUrl);
+    await mongoose.connect(dbUrl
+    );
 }
 app.use("/listings/:id/reviews",reviewRouter);
 app.get("/listings/new",(req,res)=>{
